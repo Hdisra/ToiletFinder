@@ -1,0 +1,33 @@
+# Keeps dependencies up to date. Dependabot opens pull requests; nothing changes until you merge them.
+# Docs: https://docs.github.com/en/code-security/reference/supply-chain-security/dependabot-options-reference
+version: 2
+
+updates:
+  # Backend (NestJS). The packages use the pnpm lockfile.
+  - package-ecosystem: npm
+    directory: /backend
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+
+  # Admin web app (React + Vite).
+  - package-ecosystem: npm
+    directory: /frontend
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+
+  # Mobile app (Expo). Expo ties package versions to its SDK (see `pnpm exec expo install --check`),
+  # so ordinary version updates could break it. A limit of 0 turns them off; security updates
+  # for vulnerable packages still arrive, because they are enabled in the repository settings.
+  - package-ecosystem: npm
+    directory: /mobile
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+
+  # When you add GitHub Actions workflows (.github/workflows), also add:
+  # - package-ecosystem: github-actions
+  #   directory: /
+  #   schedule:
+  #     interval: weekly
