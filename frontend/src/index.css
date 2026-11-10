@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+
+/* Same palette as the mobile app (mobile/tailwind.config.js). */
+@theme {
+  --color-brand-50: #f1f5fc;
+  --color-brand-100: #e3ebf8;
+  --color-brand-200: #cbdaf2;
+  --color-brand-300: #a6bfe8;
+  --color-brand-400: #7f9fda;
+  --color-brand-500: #5c82c9;
+  --color-brand-600: #4a6cb0;
+  --color-brand-700: #3b5791;
+  --color-brand-800: #304774;
+  --color-brand-900: #27395c;
+  --color-canvas: #f4f7fb;
+  --color-ink: #1f2a44;
+  --color-muted: #6b7a99;
+  --color-free: #3e9c8f;
+  --color-paid: #c98a2b;
+  --color-danger: #c75b5b;
+}
+
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Pin used by the location picker map. */
+.map-pin {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--color-brand-600);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 35%);
+  transform: rotate(-45deg);
+}

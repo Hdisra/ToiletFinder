@@ -1,0 +1,81 @@
+# This file applies to the whole repository (backend, frontend, mobile).
+# The project folders have their own .gitignore for their own tools; this one is the safety net
+# for anything sensitive, so a mistake in one folder can't leak it.
+
+# ---------------------------------------------------------------------------
+# SECRETS - never commit these
+# ---------------------------------------------------------------------------
+# Real environment files. Only the *.example files are committed (they hold placeholders).
+.env
+.env.*
+!.env.example
+
+# Private keys, certificates and app-signing files (Android keystore, Apple certificates).
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.cer
+*.jks
+*.keystore
+*.mobileprovision
+
+# Google / Firebase / Expo (EAS) credentials.
+google-services.json
+GoogleService-Info.plist
+service-account*.json
+credentials.json
+
+# Database dumps and backups: they contain real users' data.
+# (Migrations are TypeScript, so no .sql file belongs in this repo. Force-add one if you must.)
+*.sql
+*.sql.gz
+*.dump
+*.bak
+backups/
+dumps/
+
+# Local Docker overrides (may hold real passwords).
+docker-compose.override.yml
+
+# ---------------------------------------------------------------------------
+# Generated files and dependencies
+# ---------------------------------------------------------------------------
+node_modules/
+.pnpm-store/
+dist/
+dist-ssr/
+build/
+web-build/
+.expo/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+*.tgz
+
+# ---------------------------------------------------------------------------
+# Logs
+# ---------------------------------------------------------------------------
+*.log
+logs/
+npm-debug.log*
+pnpm-debug.log*
+
+# ---------------------------------------------------------------------------
+# Operating system and editors
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+
+# ---------------------------------------------------------------------------
+# Local tool files (AI assistants and their generated output)
+# ---------------------------------------------------------------------------
+.claude/
+CLAUDE.local.md
+graphify-out/

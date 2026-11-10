@@ -1,0 +1,28 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: bathroomfinder-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bathroomfinder
+      MYSQL_USER: bathroomfinder
+      MYSQL_PASSWORD: bathroomfinder
+    ports:
+      # Only this computer can connect (not other devices on the network).
+      - '127.0.0.1:3308:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  # Catches the emails the backend sends (password reset codes). Web UI: http://localhost:8025
+  mailpit:
+    image: axllent/mailpit:v1.33.0
+    container_name: bathroomfinder-mailpit
+    restart: unless-stopped
+    ports:
+      # Only this computer: the inbox shows password-reset codes.
+      - '127.0.0.1:1025:1025'
+      - '127.0.0.1:8025:8025'
+
+volumes:
+  mysql_data:
