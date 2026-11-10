@@ -204,3 +204,11 @@ pnpm lint
 # mobile/
 pnpm typecheck
 ```
+
+## License
+
+Copyright (c) 2026 Israel. All rights reserved. The code is public so it can be read and reviewed, but it may not be used, copied or distributed without permission. See [LICENSE](LICENSE).
+
+## Security
+
+To report a vulnerability, see [SECURITY.md](SECURITY.md).
